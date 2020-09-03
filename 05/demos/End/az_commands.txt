@@ -1,0 +1,25 @@
+pwd="YOURPASSWORD"
+user="YOURADMINUSER"
+group="YOUR_RG_NAME"
+yourip="YOUR_IP_ADDRESS"
+
+
+
+az sql server create -l SouthCentralUS -g $group -n M3GloboDBS -u $user -p $pwd
+
+az sql server firewall-rule create -g $group -s M3GloboDBS -n MyClientRule --start-ip-address $yourip --end-ip-address $yourip
+
+az sql db create -n M3GloboDB -g $group -s M3GloboDBS -e Free
+
+az sql db list-editions -a -o table -l SouthCentralUS 
+
+
+
+
+
+az cosmosdb create -n m3globocosmos -g $group --locations regionName=eastus failoverPriority=0 --locations regionName=westus failoverPriority=1
+
+az cosmosdb sql database create -a m3globocosmos -g $group -n m3globocdb
+
+az cosmosdb sql container create -n globolocations -p "/country" -a m3globocosmos -g $group -d m3globocdb 
+

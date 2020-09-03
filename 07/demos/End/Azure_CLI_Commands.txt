@@ -1,0 +1,1 @@
+az functionapp create -n m3globofunctions -g m3globogroup -s m3globostorage -c northcentralus --os-type windows --runtime dotnet --functions-version 3

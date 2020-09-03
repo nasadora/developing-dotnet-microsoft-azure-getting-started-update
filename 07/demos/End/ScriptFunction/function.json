@@ -1,0 +1,20 @@
+﻿{
+  "bindings": [
+    {
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "locations",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "name": "locationDocument",
+      "direction": "out",
+      "type": "cosmosDB",
+      "databaseName": "m3globocdb",
+      "collectionName": "globolocations",
+      "createIfNotExists": false,
+      "connectionStringSetting": "m3globocosmos_DOCUMENTDB"
+    }
+  ]
+}

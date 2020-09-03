@@ -1,0 +1,1 @@
+az webapp deployment slot swap -s staging --target-slot production --action swap -g m3globogroup -n m3globomantics

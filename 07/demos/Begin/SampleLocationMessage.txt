@@ -1,0 +1,6 @@
+{
+	"country":"Mexico",
+	"Name":"North American Marketing",
+	"Address": "Calle Primera",
+	"Telephone": "9998887777"
+}

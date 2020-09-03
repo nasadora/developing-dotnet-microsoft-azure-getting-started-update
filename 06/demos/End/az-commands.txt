@@ -1,0 +1,5 @@
+az storage account create -n m3globostorage -g M3GloboGroup --kind StorageV2 -l EastUS --sku Standard_LRS
+
+SKEY=$(az storage account keys list -n m3globostorage --query "[?keyName == 'key1'].value" -o tsv)
+
+az storage container create -n m3globoimages --public-access blob -g M3GloboGroup --account-name m3globostorage --account-key $SKEY
